@@ -8,12 +8,15 @@
 	[self.commandDelegate runInBackground:^{
 	    self.callbackId = command.callbackId;
 
-		NSString *imgAbsolutePath = [command.arguments objectAtIndex:0];
+            NSString *imgAbsolutePath = [command.arguments objectAtIndex:0];
 
-        NSLog(@"Image absolute path: %@", imgAbsolutePath);
-
-	    UIImage *image = [UIImage imageWithContentsOfFile:imgAbsolutePath];
-	    UIImageWriteToSavedPhotosAlbum(image, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
+            NSLog(@"Image absolute pathhhh: %@", imgAbsolutePath);
+            
+            NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: imgAbsolutePath]];
+            imageData = [UIImage imageWithData: imageData];
+        
+            
+            UIImageWriteToSavedPhotosAlbum(imageData, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
 	}];
 }
 
