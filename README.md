@@ -12,7 +12,7 @@ The plugin is based on code seen in several other existing plugins:
 
 Thanks to all of the above mentioned authors for sharing their code openly.
 
-    cordova plugin add cordova-plugin-save-image
+    cordova plugin add https://github.com/ExOneB/SaveImage
 
 Methods
 -------
